@@ -1,6 +1,6 @@
 import React from "react";
 import SitNBook from "./SitNBook";
-import { BookingContextProvider } from "./context/bookingContext";
+import { BookingContextProvider } from "./context/BookingContext";
 
 function App() {
   return (

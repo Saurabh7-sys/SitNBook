@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import BookingContext from "../../context/bookingContext";
+import BookingContext from "../../context/BookingContext";
 import style from "./panel.module.css";
 
 const Panel = () => {

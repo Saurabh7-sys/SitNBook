@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import BookingContext from "../../context/bookingContext";
+import BookingContext from "../../context/BookingContext";
 import Successful from "../Successful/Successful";
 import style from "./checkout.module.css";
 
@@ -45,7 +45,7 @@ const Checkout = () => {
 
     try {
       // 1. Create order on backend
-      const orderRes = await fetch("http://localhost:5000/api/payment/create-order", {
+      const orderRes = await fetch("https://sitnbook.onrender.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: total * 100 }),
@@ -61,7 +61,7 @@ const Checkout = () => {
         order_id: order.id,
         handler: async function (response) {
           // 2. Verify payment with backend
-          await fetch("http://localhost:5000/api/payment/verify-payment", {
+          await fetch("https://sitnbook.onrender.com/api/payment/verify-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(response),
