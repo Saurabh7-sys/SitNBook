@@ -1,0 +1,109 @@
+.seatGuideSection {
+  width: 100%;
+  height: 100%;
+}
+
+.seatGuideSection section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seatGuideSection div {
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.seatGuideSection span {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.seatGuideSection h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.Available {
+  background-color: var(--tertiary-2);
+}
+
+.Selected {
+  background-color: var(--primary-1);
+}
+
+.Booked {
+  background-color: var(--secondary-1);
+}
+
+.desktopText {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.mobileText {
+  display: none;
+}
+
+.seatGuideSection h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.seatGuideSection svg {
+  font-size: 18px;
+}
+
+@media (max-width: 786px) {
+  .seatGuideSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seatGuideSection section {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .seatGuideSection span {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .seatGuideSection div {
+    width: 28px;
+    height: 28px;
+  }
+
+  .seatGuideSection h3 {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .desktopText {
+    display: none;
+  }
+
+  .mobileText {
+    display: block;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .seatGuideSection h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+}

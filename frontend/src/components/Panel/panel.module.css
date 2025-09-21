@@ -1,0 +1,140 @@
+:root {
+  --seat-size: clamp(40px, 6vw, 48px);
+  --seat-gap: clamp(10px, 1.5vw, 18px);
+  --seat-radius: 8px;
+  --primary-1: #4a90e2;
+  --primary-2: #6ec6ff;
+  --tertiary-2: #f1f8e9;
+  --booked: #ff8a65;
+  --bg: #eaf8ff;
+  --seat-border: rgba(11, 17, 32, 0.12);
+}
+
+.PanelSection {
+  width: 100%;
+  display: flex;
+  gap: var(--seat-gap);
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.leftSection,
+.rightSection {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: var(--seat-size);
+  gap: var(--seat-gap);
+  justify-items: center;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.seat {
+  width: var(--seat-size);
+  height: var(--seat-size);
+  background: linear-gradient(180deg, #f7fbf7 0%, var(--tertiary-2) 100%);
+  border-radius: var(--seat-radius);
+  border: 1px solid var(--seat-border);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.04);
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+.seatNumber {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #0b1220;
+  font-weight: 600;
+}
+
+.selected {
+  background: linear-gradient(180deg, var(--primary-2), var(--primary-1));
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(74, 144, 226, 0.18), 0 2px 6px rgba(11, 17, 32, 0.06);
+  border: 1px solid rgba(74, 144, 226, 0.28);
+}
+
+.selected::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: calc(var(--seat-radius) + 6px);
+  filter: blur(6px);
+  background: radial-gradient(circle at 30% 10%, rgba(74,144,226,.12), transparent 25%);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.booked {
+  background: linear-gradient(180deg, #ffd8cc, var(--booked));
+  color: #fff;
+  border: 1px solid rgba(255, 138, 101, 0.9);
+  cursor: not-allowed;
+  opacity: 0.95;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .seat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(11, 17, 32, 0.08);
+  }
+
+  .seat.booked:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.seat:focus-visible {
+  box-shadow: 0 6px 18px rgba(74, 144, 226, 0.14);
+  border: 1px solid rgba(74, 144, 226, 0.36);
+}
+
+@media (max-width: 786px) {
+  .PanelSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .leftSection,
+  .rightSection {
+    width: 100%;
+    padding: 6px 12px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: var(--seat-size);
+    gap: 12px;
+    justify-items: center;
+  }
+
+  @media (max-width: 420px) {
+    :root {
+      --seat-size: clamp(36px, 10vw, 42px);
+      --seat-gap: 10px;
+    }
+  }
+}
+
+.leftSection,
+.rightSection {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.seat, .seat * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
